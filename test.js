@@ -31,20 +31,6 @@ import WEBUI from './index.js';
         "alwayson_scripts": {}
     }
 
-    const upscalePayload = {
-        "resize_mode": 0,
-        "show_extras_results": false,
-        "gfpgan_visibility": 0,
-        "codeformer_visibility": 0,
-        "codeformer_weight": 0,
-        "upscaling_crop": true,
-        "upscaler_1": "R-ESRGAN 4x+ Anime6B",
-        "upscaler_2": "None",
-        "extras_upscaler_2_visibility": 0,
-        "upscale_first": false,
-        "upscaling_resize": 2
-    }
-
     const api = new WEBUI("127.0.0.1", "7860");
 
     console.log("isConnected:", await api.isConnected());
@@ -58,17 +44,34 @@ import WEBUI from './index.js';
         const image = res.images[i]; // base64
 
         let index = 0;
-        let filename = String(index).padStart(4, "0") + ".png";
-        let filePath = "./test/"+filename;
-        let isExists = fs.existsSync(filePath);
-
+        let dstPath = "./test/"+String(index).padStart(4, "0") + ".png";
+        let isExists = fs.existsSync(dstPath);
+    
         while(isExists) {
             index++;
-            filename = String(index).padStart(4, "0") + ".png";
-            filePath = "./test/"+filename;
-            isExists = fs.existsSync(filePath);
-        }
+            dstPath = "./test/"+String(index).padStart(4, "0") + ".png";
+            isExists = fs.existsSync(dstPath);
+        }    
 
-        fs.writeFileSync(filePath, image, { encoding: "base64" });
+        fs.writeFileSync(dstPath, image, { encoding: "base64" });
+
+
+        // upscale
+
+        // const res2 = await api.upscale(image, {
+        //     "resize_mode": 0,
+        //     "show_extras_results": false,
+        //     "gfpgan_visibility": 0,
+        //     "codeformer_visibility": 0,
+        //     "codeformer_weight": 0,
+        //     "upscaling_crop": true,
+        //     "upscaler_1": "R-ESRGAN 4x+ Anime6B",
+        //     "upscaler_2": "None",
+        //     "extras_upscaler_2_visibility": 0,
+        //     "upscale_first": false,
+        //     "upscaling_resize": 2 // scale_by
+        // });
+
+        // const image2 = res2.image; // base64
     }
 })();
