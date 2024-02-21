@@ -1,0 +1,24 @@
+{
+  "name": "sd-webui-api-js",
+  "version": "1.0.0",
+  "description": "Access to stable diffusion webui api from js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinich39/sd-webui-api-js.git"
+  },
+  "keywords": [
+    "javascript",
+    "stable-diffusion-webui"
+  ],
+  "author": "shinich39 <shinich39@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinich39/sd-webui-api-js/issues"
+  },
+  "homepage": "https://github.com/shinich39/sd-webui-api-js#readme"
+}
