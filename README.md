@@ -16,6 +16,9 @@ const isConneted = await api.isConnected();
 - options
 
 ```js
+
+const res = await api.getOptions();
+
 const payload = {
     "samples_save": true,
     "samples_format": "png",
@@ -295,7 +298,7 @@ const payload = {
     "extra_options_accordion": false
 }
 
-const res = await api.options(payload);
+const res = await api.setOptions(payload);
 ```
 
 - img2img

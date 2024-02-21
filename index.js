@@ -2,7 +2,8 @@
 
 const ROUTES = {
   info: "/info",
-  options: "/sdapi/v1/options",
+  getOptions: "/sdapi/v1/options",
+  setOptions: "/sdapi/v1/options",
   txt2img: "/sdapi/v1/txt2img",
   img2img: "/sdapi/v1/img2img",
   upscale: "/sdapi/v1/extra-single-image",
@@ -64,8 +65,14 @@ WEBUI.prototype.info = async function() {
   return response;
 }
 
-WEBUI.prototype.options = async function(payload) {
-  const url = this.__url__("options");
+WEBUI.prototype.getOptions = async function() {
+  const url = this.__url__("getOptions");
+  const response = await this.__get__(url);
+  return response;
+}
+
+WEBUI.prototype.setOptions = async function(payload) {
+  const url = this.__url__("setOptions");
   const response = await this.__post__(url, payload);
   return response;
 }
