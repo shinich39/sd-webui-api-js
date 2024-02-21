@@ -2,6 +2,7 @@
 
 const ROUTES = {
   info: "/info",
+  options: "/sdapi/v1/options",
   txt2img: "/sdapi/v1/txt2img",
   img2img: "/sdapi/v1/img2img",
   upscale: "/sdapi/v1/extra-single-image",
@@ -60,6 +61,12 @@ WEBUI.prototype.isConnected = async function() {
 WEBUI.prototype.info = async function() {
   const url = this.__url__("info");
   const response = await this.__get__(url);
+  return response;
+}
+
+WEBUI.prototype.options = async function(payload) {
+  const url = this.__url__("options");
+  const response = await this.__post__(url, payload);
   return response;
 }
 
