@@ -33,13 +33,8 @@ const payload = {
     "clip_skip": 2,
     "do_not_save_samples": true,
     "do_not_save_grid": true,
-    "script_name": "loopback",
-    "script_args": [
-        5,
-        0.5,
-        "Linear",
-        "None"
-    ],
+    "script_name": null,
+    "script_args": [],
     "override_settings": {
         "sd_model_checkpoint": "meinamix_meinaV11.safetensors",
         "sd_vae": "kl-f8-anime2.ckpt"
