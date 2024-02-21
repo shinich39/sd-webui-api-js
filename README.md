@@ -66,7 +66,6 @@ for (let i = 0; i < res.images.length; i++) {
 ```
 - upscale
 
-
 ```js
 const res = await api.upscale(base64, {
     "resize_mode": 0,
