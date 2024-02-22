@@ -383,3 +383,22 @@ while(isExists) {
 
 fs.writeFileSync(dstPath, image, { encoding: "base64" });
 ```
+
+- Fix Headers Timeout Error
+
+```js
+// index.js
+import { Agent } from "undici";
+
+WEBUI.prototype.__post__ = async function(url, data) {
+    ...
+    const response = await fetch(url, {
+        ...
+        dispatcher: new Agent({
+            bodyTimeout: 1000 * 60 * 10, // default 300s
+            headersTimeout: 1000 * 60 * 10, // default 300s
+        })
+    });
+    ...
+}
+```
